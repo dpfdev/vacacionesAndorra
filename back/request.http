@@ -1,0 +1,70 @@
+GET http://localhost:3000/api/usuarios
+
+
+###
+GET http://localhost:3000/api/usuarios/1
+
+
+###
+GET http://localhost:3000/api/eventos
+###
+GET http://localhost:3000/api/eventos/1
+
+### 
+
+GET  http://localhost:3000/api/categorias
+###
+GET  http://localhost:3000/api/categorias/1
+
+###
+GET  http://localhost:3000/api/favoritos
+###
+GET  http://localhost:3000/api/favoritos/1  
+
+###
+GET  http://localhost:3000/api/hoteles
+###
+GET  http://localhost:3000/api/hoteles/1
+
+### hoteles por nombre
+GET  http://localhost:3000/api/hoteles?nombre=Hotel%20Plaza
+### hoteles por ciudad
+GET  http://localhost:3000/api/hoteles?ciudad=Encanmp
+### hoteles por precio_base_noche
+GET  http://localhost:3000/api/hoteles?precio_base_noche=100
+###  actividades
+GET  http://localhost:3000/api/actividades
+### actividades por nombre
+GET  http://localhost:3000/api/actividades?nombre=Esqui
+### actividades por precio
+GET  http://localhost:3000/api/actividades?precio=50
+### actividades por ciudad
+GET  http://localhost:3000/api/actividades?ciudad=Encanmp
+### actividades por id_actividad
+GET  http://localhost:3000/api/actividades?id_actividad=1
+### actividades por id_categoria
+GET  http://localhost:3000/api/actividades?id_categoria=1   
+
+### favoritos
+GET  http://localhost:3000/api/favoritos?id_usuario=1
+
+### resenas
+GET  http://localhost:3000/api/resenas
+### resenas por id_usuario
+GET  http://localhost:3000/api/resenas?id_usuario=1
+### resenas por id_hotel
+GET  http://localhost:3000/api/resenas?id_hotel=1
+### resenas por id_actividad
+GET  http://localhost:3000/api/resenas?id_actividad=1
+### imagenes
+GET  http://localhost:3000/api/imagenes
+
+###hoteles media resenas
+GET  http://localhost:3000/api/hoteles/media_resenas
+ 
+###
+
+GET  http://localhost:3000/api/hoteles/1
+
+###
+GET http://localhost:3000/api/hoteles/buscar?ciudad=Encamp&precioMin=100&precioMax=200

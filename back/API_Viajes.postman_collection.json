@@ -1,0 +1,162 @@
+{
+  "info": {
+    "name": "API Turismo Completa v2",
+    "_postman_id": "api-turismo-completa-v2",
+    "description": "Colección completa con todos los endpoints, filtros y rutas privadas/públicas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Registrar Usuario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Perez\",\n  \"email\": \"juan@example.com\",\n  \"contraseña\": \"12345678\",\n  \"rol\": \"usuario\"\n}"
+            },
+            "url": { "raw": "http://localhost:3000/usuarios", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["usuarios"] }
+          }
+        },
+        {
+          "name": "Login Usuario",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan@example.com\",\n  \"contraseña\": \"12345678\"\n}"
+            },
+            "url": { "raw": "http://localhost:3000/usuarios/login", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["usuarios","login"] }
+          }
+        },
+        {
+          "name": "Obtener Usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:3000/usuarios/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["usuarios","1"] }
+          }
+        },
+        {
+          "name": "Actualizar Usuario",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Juan Actualizado\"\n}" },
+            "url": { "raw": "http://localhost:3000/usuarios/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["usuarios","1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hoteles",
+      "item": [
+        {
+          "name": "Crear Hotel (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Hotel Paradise\",\n  \"descripcion\": \"Hotel con spa y piscina\",\n  \"categoria_estrellas\": 5,\n  \"direccion\": \"Carrer Major 10\",\n  \"ciudad\": \"Encamp\",\n  \"estado\": \"Activo\",\n  \"pais\": \"Andorra\",\n  \"codigo_postal\": \"AD200\",\n  \"latitud\": 42.534123,\n  \"longitud\": 1.580321,\n  \"telefono\": \"+376123456\",\n  \"email\": \"info@paradise.com\",\n  \"sitio_web\": \"https://paradise.com\",\n  \"precio_base_noche\": 150.00,\n  \"moneda\": \"EUR\",\n  \"activo\": 1\n}" },
+            "url": { "raw": "http://localhost:3000/hoteles", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["hoteles"] }
+          }
+        },
+        {
+          "name": "Buscar Hoteles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/hoteles/buscar?nombre=Paradise&ciudad=Encamp&precio=150&categoria_estrellas=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["hoteles","buscar"],
+              "query": [
+                { "key": "nombre","value":"Paradise" },
+                { "key": "ciudad","value":"Encamp" },
+                { "key": "precio","value":"150" },
+                { "key": "categoria_estrellas","value":"5" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actividades",
+      "item": [
+        {
+          "name": "Crear Actividad (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\":\"Esquí Alpino\",\n  \"ciudad\":\"Encamp\",\n  \"precio\":60,\n  \"descripcion\":\"Clase para principiantes\",\n  \"media\":4.5\n}" },
+            "url": { "raw": "http://localhost:3000/actividades", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["actividades"] }
+          }
+        },
+        {
+          "name": "Buscar Actividades",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/actividades/buscar?nombre=Esquí&ciudad=Encamp&precioMin=50&precioMax=100&mediaMin=4",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["actividades","buscar"],
+              "query": [
+                { "key":"nombre","value":"Esquí" },
+                { "key":"ciudad","value":"Encamp" },
+                { "key":"precioMin","value":"50" },
+                { "key":"precioMax","value":"100" },
+                { "key":"mediaMin","value":"4" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Eventos",
+      "item": [
+        {
+          "name": "Crear Evento (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nombre\":\"Concierto Rock\",\n  \"ciudad\":\"Encamp\",\n  \"fecha\":\"2026-03-15\",\n  \"precio\":50,\n  \"descripcion\":\"Concierto en vivo\"\n}" },
+            "url": { "raw": "http://localhost:3000/eventos", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["eventos"] }
+          }
+        },
+        {
+          "name": "Buscar Eventos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/eventos/buscar?ciudad=Encamp&precioMax=100&fecha=2026-03-15",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["eventos","buscar"],
+              "query": [
+                { "key":"ciudad","value":"Encamp" },
+                { "key":"precioMax","value":"100" },
+                { "key":"fecha","value":"2026-03-15" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable":[ { "key":"token", "value":"" } ]
+}
