@@ -137,6 +137,12 @@ const Home = () => {
       <section className="destacados" id="destinos">
         <h2 className="section-titulo">Destinos Destacados</h2>
         <p className="section-subtitulo">Los lugares más emblemáticos que no te puedes perder</p>
+        <button
+        className="btn-hoteles"
+        onClick={() => navigate("/hoteles")}
+      >
+        Ver Hoteles
+      </button>
         <div className="destinos-grid">
           {destinosDestacados.map(destino => (
             <div key={destino.id} className="destino-card">

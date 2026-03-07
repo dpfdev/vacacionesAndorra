@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
+import HotelesModal from "./components/HotelesModal";
 import Actividades from "./pages/Actividades";
 import Contacto from "./pages/Contacto";
 import Destinos from "./pages/Destinos";
@@ -16,6 +17,7 @@ function App() {
       <Route path="/hoteles" element={<Hoteles />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/login" element={<Login />} />
+              <Route path="/hoteles" element={<HotelesModal />} />
     </Routes>
   );
 }
