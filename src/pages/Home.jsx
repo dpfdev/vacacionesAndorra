@@ -30,7 +30,7 @@ const Home = () => {
   };
 
   // Navegación a otras páginas (simuladas)
-  const goToLogin = () => navigate('/login');
+  const goToLogin = () => navigate('./login');
 
   const destinosDestacados = [
     {
