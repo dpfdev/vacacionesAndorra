@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from "../components/footer";
 import '../styles/Home.css';
 
 const Home = () => {
@@ -167,10 +168,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer" id="contacto">
-        <p>&copy; 2024 Andorra Turismo. Todos los derechos reservados.</p>
-      </footer>
+      <Footer />
+
 
       {/* Scroll to top */}
       <button 
